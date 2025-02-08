@@ -34,3 +34,8 @@ class FiveScraper:
         # Jika scraping gagal, pakai API
         response = requests.post('https://551au.com/api/live', json={'page':1})
         return response.json()['data']
+headers = {
+       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+       "Referer": "https://551au.com/"
+   }
+   response = requests.get(url, headers=headers)

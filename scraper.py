@@ -3,6 +3,21 @@ from bs4 import BeautifulSoup
 import random
 import time
 
+import logging
+logger = logging.getLogger(__name__)
+
+class Scraper:
+    def get_live_data(self):
+        try:
+            logger.info("🔄 Mencoba mengambil data dari 55Five...")
+            response = requests.get('https://551au.com/live', timeout=10)
+            response.raise_for_status()  # Ini akan throw error jika response != 200
+            logger.info("✅ Berhasil mengambil data")
+            # ... (ekstrak data)
+        except Exception as e:
+            logger.error(f"🚨 Gagal scraping: {str(e)}")
+            return []
+
 class FiveScraper:
     def __init__(self):
         self.user_agents = [
